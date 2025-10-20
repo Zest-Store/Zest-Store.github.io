@@ -1,182 +1,219 @@
-/* Global Reset and Variables */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
-
+/* --- AESTHETIC FONTS AND PROFESSIONAL COLORS --- */
 :root {
-    --primary-dark: #2c3e50; /* Charcoal Gray - Text and Primary Elements */
-    --accent-zest: #ff6a00; /* Vibrant Orange - Buttons, Links, Highlights */
-    --secondary-light: #ecf0f1; /* Light Gray - Backgrounds, Borders */
-    --link-color: #3498db; /* Blue - Standard links */
-    --max-width: 1200px;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+    --color-charcoal: #36454F; /* Dark background */
+    --color-orange: #FF5722; /* Vibrant Zest Orange */
+    --color-white: #FFFFFF;
+    --color-light-gray: #f4f4f4;
+    --color-text-dark: #222;
 }
 
 body {
-    font-family: 'Montserrat', sans-serif;
-    line-height: 1.6;
-    color: var(--primary-dark);
-    background-color: #ffffff; /* White base background */
+    font-family: 'Poppins', sans-serif; /* A clean, modern aesthetic font */
+    margin: 0;
+    padding-top: 60px; /* Space for the fixed header */
+    background-color: var(--color-light-gray);
 }
 
-a {
-    text-decoration: none;
-    color: var(--primary-dark);
-}
+/* Include Poppins font link in your HTML <head> */
+/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"> */
 
-/* Header/Navigation Styling (Top Bar like Flipkart) */
-.header-top {
-    background-color: var(--primary-dark);
-    color: white;
-    padding: 10px 0;
-}
-
-.header-container {
-    max-width: var(--max-width);
-    margin: 0 auto;
+/* --- HEADER BAR (Desktop & Mobile) --- */
+.header {
+    background-color: var(--color-charcoal);
+    color: var(--color-white);
+    padding: 10px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
-/* Logo Styling */
-.logo-area a {
-    font-size: 1.5rem;
+/* Logo and Brand Name */
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-white);
+    font-size: 1.8em;
     font-weight: 700;
-    color: white;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    margin-left: 10px; /* Left margin for the logo */
 }
 
-.logo-area .zest {
-    color: var(--accent-zest);
-    font-size: 1.6rem;
+.brand-logo {
+    color: var(--color-orange); /* Vibrant color for the logo icon */
+    margin-right: 5px;
 }
 
-/* Search Bar Styling */
-.search-bar {
-    display: flex;
-    width: 50%;
-    max-width: 500px;
+/* --- SEARCH BAR (Desktop) --- */
+.search-container {
+    flex-grow: 1; /* Allows the search bar to take up available center space */
+    max-width: 600px;
+    margin: 0 50px;
+    position: relative;
+    display: none; /* Hidden by default, shown only on desktop */
 }
 
-.search-bar input {
-    flex-grow: 1;
-    padding: 10px 15px;
+.search-input {
+    width: 100%;
+    padding: 10px 40px 10px 15px; /* Space for search icon */
     border: none;
-    border-radius: 4px 0 0 4px;
-    font-size: 1rem;
+    border-radius: 20px;
+    font-size: 1em;
+    background-color: var(--color-white);
+    color: var(--color-text-dark);
 }
 
-.search-bar button {
-    background-color: var(--accent-zest);
-    color: white;
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
     border: none;
-    padding: 10px 15px;
+    color: var(--color-charcoal);
+    font-size: 1.2em;
     cursor: pointer;
-    border-radius: 0 4px 4px 0;
-    transition: background-color 0.3s;
+    padding: 0;
 }
 
-.search-bar button:hover {
-    background-color: #e85d00;
-}
-
-/* Right Navigation Icons */
-.nav-icons a {
-    margin-left: 25px;
-    color: white;
-    font-size: 1rem;
-    display: inline-block;
-    padding: 5px;
-    transition: color 0.3s;
-}
-
-.nav-icons a:hover {
-    color: var(--accent-zest);
-}
-
-/* Secondary Category Navigation (Horizontal Links) */
-.category-nav {
-    background-color: white;
-    border-bottom: 1px solid var(--secondary-light);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-}
-
-.category-list {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 15px 20px;
+/* --- DESKTOP NAVIGATION LINKS (Right Side) --- */
+.nav-links {
     display: flex;
-    justify-content: space-around; /* Distributes links evenly */
-    list-style: none;
+    gap: 25px;
+    align-items: center;
+    font-weight: 600;
 }
 
-.category-list a {
-    font-weight: 500;
-    color: var(--primary-dark);
-    padding: 5px 10px;
-    transition: color 0.3s, border-bottom 0.3s;
+.nav-link {
+    color: var(--color-white);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    padding: 5px 0;
 }
 
-.category-list a:hover {
-    color: var(--accent-zest);
-    border-bottom: 2px solid var(--accent-zest);
+.nav-link:hover {
+    color: var(--color-orange); /* Hover animation */
 }
 
-/* Main Content Area */
-.main-content {
-    max-width: var(--max-width);
-    margin: 20px auto;
-    padding: 0 20px;
-    min-height: 60vh;
+/* The Cart link - always visible, given a special icon style */
+.nav-link.cart {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 1.1em;
 }
 
-/* Footer Styling */
-footer {
-    background-color: var(--primary-dark);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+
+/* --- MOBILE STYLES (Hamburger, Sidebar) --- */
+.hamburger-icon {
+    display: none; /* Hidden by default, shown only on mobile */
+    cursor: pointer;
+    width: 25px;
+    height: 20px;
+    position: relative;
+    z-index: 100;
 }
 
-footer p {
-    margin: 5px 0;
-    font-size: 0.9rem;
+.bar1, .bar2, .bar3 {
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-white);
+    margin: 4px 0;
+    transition: all 0.3s ease; /* Smooth animation for cross mark */
+    border-radius: 1px;
 }
 
-/* Responsive Adjustments (For Mobile/Small Screens) */
-@media (max-width: 768px) {
-    .header-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 15px 20px;
+/* Transform hamburger to cross mark when active */
+.hamburger-icon.active .bar1 {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.hamburger-icon.active .bar2 {
+    opacity: 0;
+}
+
+.hamburger-icon.active .bar3 {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* --- AESTHETIC SMOOTH SIDEBAR (Mobile Menu) --- */
+.sidebar {
+    height: 100%;
+    width: 0; /* Hidden by default */
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    background-color: var(--color-charcoal);
+    overflow-x: hidden;
+    transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth slide-in effect */
+    padding-top: 60px;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-content {
+    padding: 30px;
+}
+
+.sidebar a {
+    padding: 15px 0;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: var(--color-light-gray);
+    display: block;
+    transition: color 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar a:hover {
+    color: var(--color-orange);
+    padding-left: 10px;
+}
+
+/* --- MEDIA QUERIES FOR RESPONSIVENESS --- */
+@media (min-width: 901px) {
+    .search-container {
+        display: block; /* Show search bar on desktop */
     }
+    .desktop-only-links {
+        display: flex; /* Show all desktop links */
+    }
+    .hamburger-icon {
+        display: none;
+    }
+    /* Hide specific links that are in the mobile sidebar */
+    .nav-link[data-auth-desktop] {
+        display: block; 
+    }
+}
 
-    .search-bar {
-        width: 100%;
-        max-width: 100%;
-        margin: 15px 0;
+@media (max-width: 900px) {
+    .search-container {
+        display: none; /* Hide search bar on mobile */
     }
-
-    .nav-icons {
-        margin-top: 10px;
+    .hamburger-icon {
+        display: block; /* Show hamburger icon on mobile */
+        margin-right: 10px;
     }
-
-    .nav-icons a {
-        margin: 0 10px;
+    .nav-links {
+        gap: 15px;
     }
-    
-    .category-list {
-        flex-wrap: wrap; /* Allows categories to wrap on smaller screens */
-        justify-content: center;
+    /* Hide all desktop links except for the cart */
+    .desktop-only-links {
+        display: none;
     }
-    
-    .category-list li {
-        margin: 5px 8px;
+    /* Move login/signup link into the sidebar */
+    .nav-link[data-auth-desktop] {
+        display: none; 
+    }
+    /* Adjust header for mobile */
+    .header {
+        padding: 10px 10px;
     }
 }
